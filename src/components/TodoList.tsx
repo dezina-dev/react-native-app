@@ -1,4 +1,3 @@
-// src/components/TodoList.tsx
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { getTodos, addTodo, updateTodo, deleteTodo } from '../services/api';
@@ -7,7 +6,6 @@ const TodoList: React.FC<any> = ({ navigation }) => {
   const [todos, setTodos] = useState<any[]>([]);
 
   useEffect(() => {
-    // Fetch todos on component mount
     fetchTodos();
   }, []);
 
@@ -18,17 +16,17 @@ const TodoList: React.FC<any> = ({ navigation }) => {
 
   const handleAddTodo = async () => {
     await addTodo('New Todo');
-    fetchTodos(); // Refresh the list after adding a new todo
+    fetchTodos();
   };
 
   const handleUpdateTodo = async (id: number) => {
     await updateTodo(id, 'Updated Todo');
-    fetchTodos(); // Refresh the list after updating a todo
+    fetchTodos();
   };
 
   const handleDeleteTodo = async (id: number) => {
     await deleteTodo(id);
-    fetchTodos(); // Refresh the list after deleting a todo
+    fetchTodos();
   };
 
   return (
